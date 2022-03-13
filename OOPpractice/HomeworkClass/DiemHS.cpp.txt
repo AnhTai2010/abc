@@ -1,0 +1,44 @@
+#include "DiemHS.h"
+void DiemHS::Nhap()
+{
+	cout << "Nhap ho ten hoc sinh:"; getline(cin, HoTen);
+	cout << endl << "Nhap diem Toan:"; cin >> Toan;
+	cout << endl << "Nhap diem Van:"; cin >> Van;
+}
+float DiemHS::DTB()
+{
+	float kq;
+	float T = GetToan();
+	float V = GetVan();
+	kq = (T + V) / 2;
+	return kq;
+}
+float DiemHS::GetToan()
+{
+	return Toan;
+}
+float DiemHS::GetVan()
+{
+	return Van;
+}
+void DiemHS::Xuat()
+{
+	DiemHS x;
+	cout << "\n" << "Ho Ten:" << HoTen << endl;
+	cout << "Toan:" << Toan << endl;
+	cout << "Van:" << Van << endl;
+	cout << "Diem Trung Binh:" << DTB() << "\n";
+	cout << "Hoc luc:"; Xeploai();
+}
+
+void DiemHS::Xeploai()
+{
+	float x = DTB();
+	if (x == 10 || x >= 8)
+		cout << "Gioi" << "\n";
+	else if (x < 8 || x >= 6.5)
+		cout << "Kha" << "\n";
+	else if (x < 6.5 || x >= 3.5)
+		cout << "Trung Binh" << "\n";
+	else cout << "Yeu" << "\n";
+}

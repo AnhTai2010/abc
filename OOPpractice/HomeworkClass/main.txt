@@ -1,0 +1,33 @@
+// PracticeClass.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+#include "DiemHS.h"
+#include "DuongTron.h"
+#include "Oxy.h"
+#include "cHocsinh.h"
+#include <iostream>
+using namespace std;
+int main()
+{
+   /* DiemHS hs1;
+    hs1.Nhap();
+    hs1.Xuat();
+    */ // Hoc Sinh
+
+   /* DuongTron dt1;
+    dt1.Nhap();
+    dt1.Xuat();*/ //duongtron
+
+   /* Oxy x1, x2;
+    x1.Nhap();
+    x2.Nhap();
+    float q = x1.KhoangCach(x2);
+    x1.Xuat();
+    cout << q << "\n";*/
+
+    cHocsinh hs1, hs2;
+    hs1.Nhap();
+    cout << "\n";
+    hs2.Nhap();
+    hs1.SoSanh(hs2);
+}
+

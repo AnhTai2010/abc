@@ -1,0 +1,17 @@
+#pragma once
+#include<iostream>
+#include<string>
+using namespace std;
+class cHocsinh
+{
+private:
+	int Ma = 0;
+	string HoTen;
+	string GioiTinh;
+	int Namsinh = 0;
+	float DTB = 0;
+public:
+	void Nhap();
+	void SoSanh(cHocsinh);
+};
+

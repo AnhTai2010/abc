@@ -1,0 +1,15 @@
+#pragma once
+#include <iostream>
+using namespace std;
+class DuongTron
+{
+private:
+	float I = 0; // toa do tam
+	float R = 0; // ban kinh duong tron
+	float pi = 3.14;
+public:
+	void Nhap();
+	void Xuat();
+	float DienTich();
+	float ChuVi();
+};

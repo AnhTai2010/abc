@@ -1,0 +1,14 @@
+#pragma once
+#include<iostream>
+using namespace std;
+class Oxy
+{
+private:
+	float x1 = 0;
+	float y1 = 0;
+public:
+	void Nhap();
+	void Xuat();
+	float KhoangCach(Oxy);
+};
+

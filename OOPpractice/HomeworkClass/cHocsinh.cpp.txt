@@ -1,0 +1,29 @@
+#include "cHocsinh.h"
+void cHocsinh::Nhap()
+{
+	cin.ignore();
+	cout << "Nhap ho ten:" ;
+	getline(cin,HoTen);
+	cout << "Nhap ma:" ;
+	cin >> Ma;
+	cout << "Nhap gioi tinh:";
+	cin >> GioiTinh;
+	cout << "Nhap nam sinh:" ;
+	cin >> Namsinh;
+	cout << "Nhap diem trung binh:";
+	cin >> DTB;
+}
+void cHocsinh::SoSanh(cHocsinh hs1)
+{
+	cout << "\nHoc sinh co diem trung binh cao hon:";
+	if (this->DTB > hs1.DTB)
+		cout << this->HoTen;
+	else cout << hs1.HoTen;
+
+	cout << "\nHoc sinh co tuoi nho hon:";
+	if (this->Namsinh > hs1.Namsinh)
+		cout << this->HoTen;
+	else if (this->Namsinh == hs1.Namsinh)
+		cout << "\nHai hoc sinh bang tuoi nhau.";
+	else cout << hs1.HoTen;
+}

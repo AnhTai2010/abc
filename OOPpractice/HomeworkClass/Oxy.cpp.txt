@@ -1,0 +1,15 @@
+#include "Oxy.h"
+void Oxy::Nhap()
+{
+	cout << "\nnhap toa do x:"; cin >> x1;
+	cout << "\nnhap toa do y:"; cin >> y1;
+}
+void Oxy::Xuat()
+{
+	cout << "\nkhoang cach 2 diem:";
+}
+float Oxy::KhoangCach(Oxy td1)
+{
+	float kq = sqrt((td1.x1-x1)*(td1.x1-x1)+(td1.y1-y1)* (td1.y1 - y1));
+	return kq;
+}

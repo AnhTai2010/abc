@@ -1,0 +1,23 @@
+#include "DuongTron.h"
+void DuongTron::Nhap()
+{
+	cout << "Nhap toa do tam duong tron:";
+	cin >> I;
+	cout << "\n" << "Nhap ban kinh duong tron:";
+	cin >> R;
+}
+void DuongTron::Xuat()
+{
+	float S = DienTich();
+	float C = ChuVi();
+	cout << "Dien tich duong tron:" << S << "\n";
+	cout << "Chu vi duong tron:" << C << "\n";
+}
+float DuongTron::DienTich()
+{
+	return R*R*pi;
+}
+float DuongTron::ChuVi()
+{
+	return 2*R*pi;
+}
