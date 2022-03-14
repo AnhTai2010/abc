@@ -4,6 +4,7 @@
 #include "DuongTron.h"
 #include "Oxy.h"
 #include "cHocsinh.h"
+#include"cArray.h"
 #include <iostream>
 using namespace std;
 int main()
@@ -24,10 +25,15 @@ int main()
     x1.Xuat();
     cout << q << "\n";*/
 
-    cHocsinh hs1, hs2;
+   /* cHocsinh hs1, hs2;
     hs1.Nhap();
     cout << "\n";
     hs2.Nhap();
-    hs1.SoSanh(hs2);
+    hs1.SoSanh(hs2);*/
+
+    cArray arr1;
+    arr1.Nhap();
+    arr1.Xuat();
+    arr1.LanXuatHien();
 }
 

@@ -1,0 +1,96 @@
+#include "cArray.h"
+void cArray::Nhap()
+{
+	cout << "Nhap so phan tu mang 1 chieu:";
+	cin >> Slphantu;
+
+	srand(time(NULL));
+
+	for (int i = 0; i < Slphantu; i++)
+	{
+		int temp = rand() % 2;
+		if (temp == 0)
+			arr[i] = rand() % 100 * (-1);
+		else arr[i] = rand() % 100;
+	}
+}
+void cArray::Xuat()
+{
+	for (int i = 0; i < Slphantu; i++)
+	{
+		cout << arr[i] << " ";
+	}
+	int Am = AmLonNhat();
+	if (Am == -999)
+		cout << "\nKhong co so am trong mang.";
+	else 
+		cout << "\nSo am lon nhat trong mang:" << Am;
+	bool giamdan = CheckGiamDan();
+	if (giamdan == false)
+		cout << "\nMang khong giam dan." << endl;
+	else
+		cout << "\nMang giam dan." << endl;
+	/*int temp = NhoNhat();
+	cout << "nho nhat: " << temp;*/
+}
+int cArray::AmLonNhat()
+{
+	int temp = -999;
+	for (int i = 0; i < Slphantu; i++)
+	{
+		if (arr[i] < 0 && arr[i] > temp)
+		{
+			temp = arr[i];
+		}
+		else temp = temp;
+	}
+	return temp;
+}
+int cArray::DemXuatHien(int x)
+{
+	int Dem = 0;
+	for (int i = 0; i < Slphantu; i++)
+	{
+		if (arr[i] == x)
+			Dem++;
+	}
+	return Dem;
+}
+void cArray::LanXuatHien()
+{
+	int temp = 0;
+	cout << "\nNhap so nguyen x:"; cin >> temp;
+	int XuatHien = DemXuatHien(temp);
+	cout << "So lan xuat hien cua so " << temp << " la:" << XuatHien;
+}
+bool cArray::CheckGiamDan()
+{
+	for (int i = 0; i < Slphantu; i++)
+	{
+		if (arr[i + 1] > arr[i])
+			return false;
+	}
+	return true;
+}
+int cArray::NhoNhat()
+{
+	int temp = arr[0];
+	for (int i = 0; i < Slphantu-1; i++)
+	{
+		if (temp > arr[i])
+		{
+			temp = arr[i];
+		} 
+		else
+			temp = temp;
+	}
+	return temp;
+}
+/*int cArray::getarray()
+{
+	return new arr[n];
+}
+cArray cArray::Sapxep()
+{
+	cArray* x1 = new cArray;
+}*/

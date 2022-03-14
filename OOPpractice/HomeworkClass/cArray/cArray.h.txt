@@ -1,0 +1,20 @@
+#pragma once
+#include<iostream>
+using namespace std;
+constexpr auto n = 1000;
+class cArray
+{
+private:
+	int Slphantu; // so luong phan tu
+	int arr[n];
+public:
+	void Nhap();
+	void Xuat();
+	int AmLonNhat();
+	int DemXuatHien(int);
+	void LanXuatHien();
+	bool CheckGiamDan();
+	int NhoNhat();
+/*	cArray Sapxep();
+	int getarray();*/
+};
