@@ -1,0 +1,108 @@
+// Hackerrank.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <string>
+using namespace std;
+class SoPhuc
+{
+private:
+    float sothuc ;
+    float soao ;
+public:
+    void Nhap();
+    void Xuat();
+    SoPhuc();
+    SoPhuc TinhToan(SoPhuc);
+    SoPhuc Cong(const SoPhuc&);
+    SoPhuc Tru(const SoPhuc&);
+    SoPhuc Nhan(const SoPhuc&);
+    SoPhuc NhanN(int);
+    SoPhuc Chia(const SoPhuc&);
+};
+int main()
+{
+    SoPhuc c1, c2, A;
+    c1.Nhap();
+    c2.Nhap();
+    A = c1.TinhToan(c2);
+    A.Xuat();
+    return 0;
+}
+SoPhuc::SoPhuc()
+{
+    this->sothuc = 1;
+    this->soao = 1;
+}
+void SoPhuc::Nhap()
+{
+    cin >> sothuc >> soao;
+}
+void SoPhuc::Xuat()
+{
+    float modulo = sqrt((sothuc*sothuc)+soao*soao);
+    while (modulo == 0)
+    {
+        cout << "ERROR";
+    }
+    if (soao == 0)
+    {
+        cout << sothuc << endl;
+    }
+    else if (sothuc == 0)
+    {
+        cout << soao << "i" << endl;
+    }
+    else if (soao < 0)
+    {
+        cout << sothuc << " - " << abs(soao) << "i" << endl;
+    }
+    else
+        cout << sothuc << " + " << soao << "i" << endl;
+}
+SoPhuc SoPhuc::TinhToan(SoPhuc A)
+{
+    SoPhuc kq, bt1, bt2, bt3;
+    bt1 = this->Cong(A);
+    bt2 = A.Tru(this->NhanN(2));
+    bt3 = this->Tru(A.NhanN(4));
+    SoPhuc kq1 = bt1.Nhan(bt2);
+    kq = kq1.Chia(bt3);
+    return kq;
+}
+
+SoPhuc SoPhuc::Cong(const SoPhuc& A)
+{
+    SoPhuc kq;
+    kq.sothuc = this->sothuc + A.sothuc;
+    kq.soao = this->soao + A.soao;
+    return kq;
+}
+SoPhuc SoPhuc::Tru(const SoPhuc& A)
+{
+    SoPhuc kq;
+    kq.sothuc = this->sothuc - A.sothuc;
+    kq.soao = this->soao - A.soao;
+    return kq;
+}
+SoPhuc SoPhuc::Nhan(const SoPhuc& A)
+{
+    SoPhuc kq;
+    kq.sothuc = ((this->sothuc * A.sothuc) - (this->soao * A.soao));
+    kq.soao = (this->sothuc * A.soao + this->soao * A.sothuc);
+    return kq;
+}
+SoPhuc SoPhuc::Chia(const SoPhuc& A)
+{
+    SoPhuc kq;
+    kq.sothuc = ((this->sothuc * A.sothuc) + (this->soao * A.soao)) / (A.sothuc * A.sothuc + A.soao * A.soao);
+    kq.soao = ((this->soao * A.sothuc) - (this->sothuc * A.soao)) / (A.sothuc * A.sothuc + A.soao * A.soao);
+    return kq;
+}
+SoPhuc SoPhuc::NhanN(int x)
+{
+    SoPhuc kq;
+    kq.sothuc = x * this->sothuc;
+    kq.soao = x * this->soao;
+    return kq;
+}
