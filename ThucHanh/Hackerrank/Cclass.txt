@@ -1,0 +1,39 @@
+// Hackerrank.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <string>
+using namespace std;
+class Chocsinh
+{
+private:
+    string HoTen;
+    float Toan, Van;
+public:
+    void Nhap();
+    void Xuat();
+};
+int main()
+{
+    Chocsinh hs1;
+    hs1.Nhap();
+    hs1.Xuat();
+    return 0;
+}
+void Chocsinh::Nhap()
+{
+    getline(cin, HoTen);
+    cin >> Toan >> Van;
+    while (Toan > 10 || Toan < 0 || Van >10 || Van < 0)
+    {
+        cin >> Toan >> Van;
+    }
+}
+void Chocsinh::Xuat()
+{
+    cout << "Thong tin hoc sinh:\n";
+    cout << "Ho ten: " << HoTen << endl;
+    cout << "Diem toan: " << Toan << endl;
+    cout << "Diem van: " << Van << endl;
+    cout << "Diem trung binh: " << (Van + Toan) / 2;
+}
