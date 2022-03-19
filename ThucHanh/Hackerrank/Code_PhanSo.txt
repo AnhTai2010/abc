@@ -1,0 +1,77 @@
+Tính tổng hiệu tích thương Phân Số:
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+struct PHANSO
+{
+    int TS;
+    int MS;
+};
+
+void NhapPS(PHANSO& x)
+{
+    cin >> x.TS;
+    do
+    {
+        cin >> x.MS;
+    } while (x.MS == 0);
+}
+
+void XuatPS(PHANSO x)
+{
+    cout << x.TS << "/" << x.MS << endl;
+}
+
+PHANSO TongPS(PHANSO x1, PHANSO x2)
+{
+    PHANSO kq;
+    kq.TS = x1.TS * x2.MS + x1.MS * x2.TS;
+    kq.MS = x1.MS * x2.MS;
+    return kq;
+}
+
+PHANSO HieuPS(PHANSO x1, PHANSO x2)
+{
+    PHANSO kq;
+    kq.TS = x1.TS * x2.MS - x1.MS * x2.TS;
+    kq.MS = x1.MS * x2.MS;
+    return kq;
+}
+
+PHANSO TichPS(PHANSO x1, PHANSO x2)
+{
+    PHANSO kq;
+    kq.TS = x1.TS * x2.TS;
+    kq.MS = x1.MS * x2.MS;
+    return kq;
+}
+
+PHANSO ThuongPS(PHANSO x1, PHANSO x2)
+{
+    PHANSO kq;
+    kq.TS = x1.TS * x2.MS;
+    kq.MS = x1.MS * x2.TS;
+    return kq;
+}
+
+int main()
+{
+    PHANSO ps1, ps2;
+    NhapPS(ps1);
+    NhapPS(ps2);
+    PHANSO Tong = TongPS(ps1, ps2);
+    PHANSO Hieu = HieuPS(ps1, ps2);
+    PHANSO Tich = TichPS(ps1, ps2);
+    PHANSO Thuong = ThuongPS(ps1, ps2);
+
+    XuatPS(Tong);
+    XuatPS(Hieu);
+    XuatPS(Tich);
+    XuatPS(Thuong);
+
+}
+
+
