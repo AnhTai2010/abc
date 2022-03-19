@@ -1,0 +1,98 @@
+#include cmath
+#include cstdio
+#include vector
+#include iostream
+#include algorithm
+using namespace std;
+struct Date
+{
+    int ngay;
+    int thang;
+    int nam;
+};
+void Nhap(Date &x)
+{
+    do
+    {
+        cin  x.ngay;
+        if (x.ngay  31)
+        {
+            cout  error;
+        }
+    } while (x.ngay  31);
+    do
+    {
+        cin  x.thang;
+        if (x.thang  12)
+        {
+            cout  error;
+        }
+    } while (x.thang  12);
+    cin  x.nam;
+}
+
+void Xuat(Date x)
+{
+    cout  x.ngay    x.thang    x.nam;
+}
+
+void TiepTheo(Date x)
+{
+    switch (x.thang)
+    {
+        case 1
+        case 3
+        case 5
+        case 7
+        case 8
+        case 10
+        case 12
+        {
+            x.ngay = x.ngay + 1;
+            if (x.ngay == 32)
+            {
+                x.thang++;
+                if (x.thang == 13)
+                {
+                    x.nam++;
+                }
+            }
+        }
+        case 4
+        case 6
+        case 9
+        case 11
+        {
+            x.ngay = x.ngay + 1;
+            if (x.ngay == 31)
+            {
+                x.thang++;
+                if (x.thang == 13)
+                {
+                    x.nam++;
+                }
+            }
+        }
+        case 2
+        {
+            x.ngay = x.ngay + 1;
+            if (x.ngay == 39)
+            {
+                x.thang++;
+                if (x.thang == 13)
+                {
+                    x.nam++;
+                }
+            }
+        }
+    }
+    cout  x.ngay    x.thang    x.nam;
+}
+
+int main()
+{
+    Date Date1;
+    Nhap(Date1);
+    TiepTheo(Date1);
+}
+
