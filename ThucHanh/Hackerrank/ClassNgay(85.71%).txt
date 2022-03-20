@@ -1,0 +1,147 @@
+// Hackerrank.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <string>
+using namespace std;
+class NextDay
+{
+    int ngay, thang, nam;
+public:
+    NextDay();
+    void Nhap();
+    bool CheckDate();
+    NextDay ketiep(const NextDay);
+    void Xuat();
+};
+int main()
+{
+    NextDay d1, ketiep;
+    d1.Nhap();
+    ketiep = d1.ketiep(d1);
+    ketiep.Xuat();
+    return 0;
+}
+NextDay::NextDay()
+{
+    this->ngay = 0;
+    this->thang = 0;
+    this->nam = 0;
+}
+void NextDay::Nhap()
+{
+    cin >> ngay >> thang >> nam;
+}
+bool NextDay::CheckDate()
+{
+    bool check = 1;
+    if (ngay < 1 || ngay > 31 || thang < 1 || thang > 12 || nam < 1)
+    {
+        check = 0;
+    }
+    if (thang == 4 || thang == 6 || thang == 9 || thang == 11)
+    {
+        if (ngay > 30)
+            check = 0;
+    }
+    if (thang == 2)
+    {
+        if (nam % 4 == 0)
+        {
+            if (ngay > 29)
+                check = 0;
+        }
+        else
+        {
+            if (ngay > 28)
+                check = 0;
+        }
+    }
+    return check;
+}
+void NextDay::Xuat()
+{
+    int hople = CheckDate();
+    if (hople == 0)
+        cout << "ERROR";
+    else
+        cout << ngay << "/" << thang << "/" << nam;
+}
+NextDay NextDay::ketiep( NextDay x)
+{
+    
+    NextDay kq;
+    int kt = x.CheckDate();
+    if (kt == 1)
+    {
+        x.ngay++;
+    }
+    else return kq;
+    switch (x.thang)
+    {
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+    {
+        if (x.ngay > 31)
+        {
+            x.ngay = 1;
+            x.thang = x.thang++;
+            if (x.thang > 12)
+            {
+                x.ngay = 1;
+                x.thang = 1;
+                x.nam++;
+                return x;
+            }
+        }
+        else x.ngay = x.ngay;
+    }
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+    {
+        if (x.ngay > 30)
+        {
+            x.ngay = 1;
+            x.thang++;
+            return x;
+        }
+        else x.ngay = x.ngay;
+    }
+    case 2:
+    {
+        if (x.nam % 4 == 0)
+        {
+            if (x.ngay > 29)
+            {
+                x.ngay = 1;
+                x.thang++;
+                return x;
+            }
+            else x.ngay = x.ngay;
+        }
+        else
+        {
+            if (x.ngay > 28)
+            {
+                x.ngay = 1;
+                x.thang++;
+                return x;
+            }
+            else
+                x.ngay = x.ngay;
+        }
+        return x;
+    }
+    default:
+        x.ngay = x.ngay;
+        break;
+    }
+    return x;
+}
