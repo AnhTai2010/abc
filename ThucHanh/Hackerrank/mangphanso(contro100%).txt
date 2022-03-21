@@ -1,0 +1,60 @@
+#include <iomanip>
+#include <iostream>
+using namespace std;
+const int MAX = 1000;
+class PhanSo {
+    private:
+    double tuSo,mauSo;
+    public:
+    void Nhap();
+    void Xuat();
+    double getValue();
+};
+
+void MinMax(PhanSo *A, const int &n);
+
+// Nhap phan so 
+void PhanSo::Nhap(){
+    do{
+        cin >> tuSo >> mauSo;
+    } while (mauSo == 0);
+}
+
+// Xuat phan so 
+void PhanSo::Xuat(){
+    cout << fixed << setprecision(0) << tuSo << "/" << mauSo << "\n";
+}
+
+// Lay gia tri thuc
+double PhanSo::getValue(){
+    return tuSo/mauSo;
+}
+
+void MinMax(PhanSo *A, const int &n) {
+    int max = 0, min = 0;
+    float ps_max = A[0].getValue();
+    float ps_min = A[0].getValue();
+    for (int i=1;i<n;i++){
+        if (A[i].getValue() > ps_max){
+            ps_max = A[i].getValue();
+            max = i;
+        }
+        if (A[i].getValue() < ps_min){
+            ps_min = A[i].getValue();
+            min = i;
+        }
+    }
+    A[min].Xuat();
+    A[max].Xuat();
+}
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    PhanSo a[MAX];
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++){
+        a[i].Nhap();
+    }
+    MinMax(a,n);
+    return 0;
+}

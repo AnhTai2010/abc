@@ -1,0 +1,73 @@
+// Hackerrank.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <string>
+using namespace std;
+constexpr auto n =1000;
+class mangPhanSo
+{
+    int tu = 0;
+    int mau = 1 ;
+    int slphanso = n;
+public:
+    void Nhap(mangPhanSo[]);
+    void Xuat();
+    float sothuc();
+    mangPhanSo LonNhat(mangPhanSo[]);
+    mangPhanSo NhoNhat(mangPhanSo[]);
+};
+int main()
+{
+    mangPhanSo ps1[n],minps,maxps;
+    ps1->Nhap(ps1);
+    minps = ps1->NhoNhat(ps1);
+    minps.Xuat();
+    maxps = ps1->LonNhat(ps1);
+    maxps.Xuat();
+    return 0;
+}
+void mangPhanSo::Nhap(mangPhanSo x[])
+{
+    cin >> slphanso;
+    for (int i = 0; i < slphanso; i++)
+    {
+        cin >> x[i].tu >> x[i].mau;
+    }
+}
+void mangPhanSo::Xuat()
+{
+        cout << tu << "/" << mau << endl;
+}
+float  mangPhanSo::sothuc()
+{
+    return (float)tu / mau;
+}
+mangPhanSo mangPhanSo::LonNhat(mangPhanSo x[])
+{
+    float max = x[0].sothuc();
+    int temp = 0;
+    for (int i = 1; i < slphanso; i++)
+    {
+        if (x[i].sothuc() > max)
+        {
+            max = x[i].sothuc();
+            temp = i;
+        }
+    }
+    return x[temp];
+}
+mangPhanSo mangPhanSo::NhoNhat(mangPhanSo x[])
+{
+    float min = x[0].sothuc();
+    int temp = 0;
+    for (int i = 1; i < slphanso; i++)
+    {
+        if (x[i].sothuc() < min)
+        {
+            min = x[i].sothuc();
+            temp = i;
+        }
+    }
+    return x[temp];
+}
