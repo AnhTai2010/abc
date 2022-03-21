@@ -90,7 +90,7 @@ NextDay NextDay::ketiep( NextDay x)
         if (x.ngay > 31)
         {
             x.ngay = 1;
-            x.thang = x.thang++;
+            x.thang++;
             if (x.thang > 12)
             {
                 x.ngay = 1;
