@@ -1,0 +1,8 @@
+Nhap vao mang cac phan so
+1) Nhap so luong phan so
+2) Xuat mang cac phan so
+3) Tim gia tri lon nhat trong mang phan so
+4) Sap xep mang phan so tang dan
+Require: Yeu cau phai su dung OOP theo hinh thuc dong goi
+Vi du: Tao ra class Phan so va class Mang Phan So bao gom n class Phan So 
+co tinh chat nhu 1 phan so.
