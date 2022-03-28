@@ -143,22 +143,20 @@ Diem Lenh::thucthi(Diem& k)
         }
         else if (p == 3)
         {
-            float o = 0;
-            float d = 0;
-            float temp = 0;
+            float o = 0, d = 0;
             cin >> o;
             cin >> d;
-            if (o == 0) // khi o = 0 -> tinh tien x (d,0)
+            if (o == 0) // khi o = 0 -> tinh tien x (x+d,y)
             {
 
-                k.sethoanhdo((float)d);
-                k.settungdo(temp);
+                k.sethoanhdo(k_hoanh+d);
+                k.settungdo(k_tung);
                 // k.Xuat();
             }
-            else // o !=0 -> tinh tien y(0,d)
+            else // o !=0 -> tinh tien y(x,y+d)
             {
-                k.sethoanhdo(temp);
-                k.settungdo((float)d);
+                k.sethoanhdo(k_hoanh);
+                k.settungdo(k_tung + d);
                 //k.Xuat();
             }
 
