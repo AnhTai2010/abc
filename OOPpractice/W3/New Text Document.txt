@@ -1,0 +1,3 @@
+Ham Da thuc:
+Nhap vao 2 Da thuc, Xuat cac da thuc tren man hinh. Tinh Tong hai da thuc
+Va xuat ket qua
