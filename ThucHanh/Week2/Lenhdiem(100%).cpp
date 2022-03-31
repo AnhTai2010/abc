@@ -27,6 +27,7 @@ public:
     Lenh(int, Diem&);
     Diem thucthi(Diem&);
 };
+
 int main() {
     Diem d1, d2;
     d1.Nhap();
@@ -46,7 +47,7 @@ void Diem::Nhap()
 }
 void Diem::Xuat()
 {
-    cout << "(" << x << "," << y << ")"<<endl;
+    cout << "(" << x << "," << y << ")" << endl;
 }
 float Diem::gethoanhdo()
 {
@@ -75,7 +76,8 @@ Lenh::Lenh(int p, Diem& k)
 }
 Diem Lenh::thucthi(Diem& k)
 {
-    
+
+
     int p = 0;
     float k_hoanh = 0;
     float k_tung = 0;
@@ -84,51 +86,8 @@ Diem Lenh::thucthi(Diem& k)
         k_hoanh = k.gethoanhdo();
         k_tung = k.gettungdo();
         cin >> p;
-        /*
-        switch (p)
-        {
-        case 1: // X2 toa do
-        {
-            k_hoanh *= 2;
-            k_tung *= 2;
-            k.sethoanhdo(k_hoanh);
-            k.settungdo(k_tung);
-           // k.Xuat();
-        }
-        case 2: // dua ve Goc toa do
-        {
-            k_hoanh = 0;
-            k_tung = 0;
-            k.sethoanhdo(k_hoanh);
-            k.settungdo(k_tung);
-            //k.Xuat();
-        }
-        case 3:// Tinh tien
-        {
-            int o = 0, d = 0;
-            int temp = 0;
-            cin >> o;
-            cin >> d;
-            if (o == 0) // khi o = 0 -> tinh tien x (d,0)
-            {
-                
-                k.sethoanhdo((float)d);
-                k.settungdo(temp);
-               // k.Xuat();
-            }
-            else // o !=0 -> tinh tien y(0,d)
-            {
-                cin >> d;
-                k.sethoanhdo(temp);
-                k.settungdo((float)d);
-                //k.Xuat();
-            }
-        }
-      
-        }*/
         if (p == 1) // x2 toa do
         {
-
             k_hoanh *= 2;
             k_tung *= 2;
             k.sethoanhdo(k_hoanh);
@@ -149,7 +108,7 @@ Diem Lenh::thucthi(Diem& k)
             if (o == 0) // khi o = 0 -> tinh tien x (x+d,y)
             {
 
-                k.sethoanhdo(k_hoanh+d);
+                k.sethoanhdo(k_hoanh + d);
                 k.settungdo(k_tung);
                 // k.Xuat();
             }
@@ -162,7 +121,7 @@ Diem Lenh::thucthi(Diem& k)
 
         }
         else {
-           // i--;
+            //i--;
         }
 
     }

@@ -1,6 +1,5 @@
 // Hackerrank.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
 #include <iostream>
 #include <string>
 constexpr auto n = 1000;
@@ -18,7 +17,6 @@ public:
     float gety() { return this->y; }
     float setx(float k) { return this->x = k; }
     float sety(float k) { return this->y = k; }
-    float STamGiac(Diem, Diem, Diem);
 };
 class DaGiac
 {
@@ -33,10 +31,10 @@ public:
 int main() {
     int sl = 1;
     Diem* t = new Diem[n];
-    DaGiac polygon(sl,t);
+    DaGiac polygon(sl, t);
     polygon.Nhap(t);
     float S = polygon.DienTich(t);
-    cout << "Dien tich:" << S;
+    cout << S;
     return 0;
 }
 Diem::Diem()
@@ -47,24 +45,22 @@ Diem::Diem(float hd, float td)
     hd = this->x;
     td = this->y;
 }
-float Diem::STamGiac(Diem A, Diem B, Diem C)
-{
-    return (0.5 * abs((C.x - A.x) * (B.y - A.y) - (B.x - A.x) * (C.y - A.y))); // dien tich tam giac
-}
 void Diem::Nhap()
 {
     cin >> x >> y;
 }
 void Diem::Xuat()
 {
-    cout << "(" << x << "," << y << ")"<<endl;
+    cout << "(" << x << "," << y << ")" << endl;
 }
 DaGiac::DaGiac()
 {
 }
 DaGiac::DaGiac(int y, Diem* k)
 {
-    cin >> y;
+    do {
+        cin >> y;
+    } while (y <= 2);
     sldiem = y;
     k = new Diem[sldiem];
 }
@@ -78,9 +74,11 @@ void DaGiac::Nhap(Diem* k)
 float DaGiac::DienTich(Diem* k)
 {
     float S = 0;
-    for (int i = 0; i < sldiem-1; i++)
+    int j = sldiem - 1;
+    for (int i = 0; i < sldiem; i++)
     {
-        S = S + k[i].STamGiac(k[0], k[i], k[i + 1]);
+        S = S + ((k[j].getx() + k[i].getx()) * (k[j].gety() - k[i].gety()));
+        j = i;
     }
-    return S;
+    return abs(S / 2);
 }
