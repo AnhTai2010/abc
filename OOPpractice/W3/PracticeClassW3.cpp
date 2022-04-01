@@ -23,19 +23,26 @@ int main()
     dtnhan.Xuat();
     dtchia = dt1.Chia(dt2);
     dtchia.Xuat();*/
-    DaThuc dt1,dt2, dtcong , dttru , dtnhan;
+    DaThuc dt1, dt2, dtcong, dttru, dtnhan;
     dt1.Nhap();
+    cout << "da thuc thu nhat:" << endl;
     dt1.Xuat();
     cout << endl;
     dt2.Nhap();
+    cout << "da thuc thu hai:" << endl;
     dt2.Xuat();
     cout << endl;
-   /* dtcong = dtcong.Cong(dt1, dt2);
+    dtcong = dtcong.Cong(dt1, dt2);
+    cout << "Cong hai da thuc:" << endl;
     dtcong.Xuat();
     cout << endl;
     dttru = dttru.Tru(dt1, dt2);
-    dttru.Xuat();*/
-    dtnhan.Nhan(dt1, dt2);
+    cout << "Tru hai da thuc:" << endl;
+    dttru.Xuat();
+    cout << endl;
+    dtnhan = dtnhan.Nhan(dt1, dt2);
+    cout << "Nhan hai da thuc:" << endl;
     dtnhan.Xuat();
 }
+
 

@@ -13,8 +13,10 @@ public:
 	float GiaTri(float);
 	void Nhap();
 	void Xuat();
-	DaThuc Cong(DaThuc,DaThuc);
-	DaThuc Tru(DaThuc,DaThuc);
+	int getbac();
+	int setbac(int);
+	DaThuc Cong(DaThuc, DaThuc);
+	DaThuc Tru(DaThuc, DaThuc);
 	DaThuc Nhan(DaThuc, DaThuc);
 	DaThuc Chia(DaThuc, DaThuc);
 };

@@ -52,15 +52,15 @@ void DonThuc::Xuat()
 
 		cout << heso;
 	}
-	else	
-		cout << heso << "x^" << somu ;
+	else
+		cout << heso << "x^" << somu;
 }
 float DonThuc::GiaTri(float x)
 {
 	float S = 0;
 	if (x == 0)
 		return S;
-	else return (float) heso * pow(x, somu);
+	else return (float)heso * pow(x, somu);
 }
 DonThuc DonThuc::Cong(DonThuc t)
 {
