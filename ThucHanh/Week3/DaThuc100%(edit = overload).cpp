@@ -51,12 +51,12 @@ int main() {
     d2.Nhap();
     d2.Xuat();
     cout << endl << endl;
-    cin >> z;
-    if (z == 1)
-    {
-        kq = d1 + d2;
-        kq.Xuat();
-    }
+    cin >> z;               //string z;
+    if (z == 1)             //cin.ignore;
+    {                       //getline(cin,z);
+        kq = d1 + d2;       // if(z =="+") same z == 1
+        kq.Xuat();          // if(z == "-") same z ==2
+    }                       // if(z == "*") same z == 3
     else if (z == 2)
     {
         kq = d1 - d2;
