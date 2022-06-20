@@ -1,0 +1,171 @@
+class Personality
+{
+   protected:
+	int Diem;
+   public:
+	Personality() {Diem = 0;}
+	virtual void Nhap() {cin >> Diem;}
+	virtual void Xuat();
+	int GetDiem() { return Diem;}
+};
+class Openess:public Personality
+{
+   public:
+	Openess(); {Diem = 0;}
+	void Xuat()
+	{
+		if (Diem >=70 && Diem <=100)
+			cout << "Thuong la nguoi thich nhung y tuong moi, ...";
+		else if (Diem >=0 && Diem <=30)
+			cout << " Thuong kha bao thu, kho tiep nhan y tuong moi la, thich su on dinh ,...";
+		else
+			cout << " Khong xac dinh ro ";
+	}
+};
+class Conscientiouness:public Personality
+{
+   public:
+	Conscientiouness(){Diem = 0;}
+	void Xuat()
+	{
+		if (Diem >=70 && Diem <=100)
+			cout << "thuong la nguoi cham chi, co kha nang chiu ap luc tot,...";
+		else if (Diem >=0 && Diem <=30)
+			cout << "Thuong de bo cuoc, kha nang chiu ap luc, tuan thu ky luat cua to chuc kem;";
+		else
+		        cout << " Khong dac biet ";
+	}
+};
+class Extraversion:public Personality
+{
+   public:
+	Extraversion(){Diem = 0;}
+	void Xuat()
+	{
+		if (Diem >=70 && Diem <=100)
+			cout << "thuong la nguoi nhiet tinh, nang dong, giao tiep tot, thich the hien ban than";
+		else if (Diem >=0 && Diem <=30)
+			cout << "Thuong ngai giao tiep, khong thich su noi bat, thich lam viec doc lap;";
+		else
+		        cout << " Khong dac biet ";		
+	} 
+};
+class Agreeableness:public Personality
+{
+   public:
+	Agreeableness(){Diem = 0;}
+	void Xuat()
+	{
+		if (Diem >=70 && Diem <=100)
+			cout << "thuong than thien, coi mo, dong cam voi moi nguoi nhung thieu chinh kien";
+		else if (Diem >=0 && Diem <=30)
+			cout << "Thuong dat loi ich ban than len tren, it dong cam, chia se voi dong nghiep, co tinh canh tranh cao;";
+		else
+		        cout << " Khong dac biet ";		
+	} 
+};
+class Neuroticism:public Personality
+{
+   public:
+	Neuroticism(){Diem = 0;}
+	void Xuat()
+	{
+		if (Diem >=70 && Diem <=100)
+			cout << "thuong co cam xuc tieu cuc nhu: lo lang , buc boi, tu ti, yeu duoi va kha nang chiu ap luc kem";
+		else if (Diem >=0 && Diem <=30)
+			cout << "Thuong kiem soat duoc cam xuc, ung pho voi cang thang tot, it bi ben ngoai anh huong toi tam trang ban than;";
+		else
+		        cout << " Khong dac biet ";
+	}
+}
+class BigFiveModel
+{
+	Personality *p;
+	flag;
+   public:
+	BigFiveModel()
+	{
+		p = new Personality[4];
+		flag = 0;
+	}
+	void Nhap()
+	{
+		p[0] = new Openess;
+		p[1] = new Conscientiouness;
+		p[2] = new Extraversion;
+		p[3] = new Agreeableness;
+		p[4] = new Neuroticism
+		for(int i = 0; i < 5; i++)
+		{
+			p[i]->Nhap();
+		}
+	}
+	void Xuat()
+	{
+		for(int i = 0; i<5; i++)
+		{
+			p[i]->Xuat();
+		}
+
+	}
+	int DanhGia()
+	{
+		if (p[1]->GetDiem()<30 || p[4]->GetDiem()>=70 || p[2]->GetDiem()<=30 && p[4]->GetDiem()>=70)
+		{
+			flag = 1;
+		}
+		else flag = 0;
+		return flag;
+	}
+};
+class DSNguoi
+{
+	int slnguoi;
+	BigFiveModel *t;
+  public:
+	DSNguoi()
+	{
+		slnguoi = 0;
+		t = new BigFiveModel[100];
+	}
+	void Nhap()
+	{
+		cin >> slnguoi;
+		for(int i = 0; i <slnguoi; i++)
+		{
+			t[i] ->Nhap();
+		}
+	}
+	void Xuat()
+	{
+		for(int i = 0; i<slnguoi; i++)
+		{
+			t[i]->Xuat();
+		}
+	}
+	void ChonNguoi()
+	{
+		int temp = 0;
+		cin >> temp;
+		if(temp <= slnguoi)
+		{
+			t[temp]->Xuat();
+		}
+	}
+	void DanhGia()
+	{
+		for(int i = 0; i< slnguoi; i++)
+		{
+			if(t[i]->DanhGia()==1)
+				cout << "Doanh nghiep can luu y :";
+				t[i]->Xuat();
+			else;
+		}
+	}
+};
+int main()
+{
+	DSNguoi k;
+	k.Nhap();
+	k.Xuat();
+}
